@@ -3,8 +3,6 @@
 
 from typing import List, Optional
 
-import fire
-
 from llama import Llama, Dialog
 
 
@@ -85,7 +83,7 @@ If a question does not make any sense, or is not factually coherent, explain why
         ],
     ]
     results = generator.chat_completion(
-        dialogs,  # type: ignore
+        dialogs[0],  # type: ignore
         max_gen_len=max_gen_len,
         temperature=temperature,
         top_p=top_p,
@@ -101,4 +99,6 @@ If a question does not make any sense, or is not factually coherent, explain why
 
 
 if __name__ == "__main__":
-    fire.Fire(main)
+    llama_path = "C:\\Users\\Alex\\.llama\\checkpoints\\Llama-2-7b"
+    tokeniser_path = "C:\\Users\\Alex\\.llama\\checkpoints\\Llama-2-7b\\tokenizer.model"
+    main(llama_path, tokeniser_path)

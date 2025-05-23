@@ -5,6 +5,11 @@ import fire
 
 from llama import Llama
 from typing import List
+import os
+
+os.environ["USE_LIBUV"] = "0"
+
+
 
 def main(
     ckpt_dir: str,
@@ -66,4 +71,6 @@ def main(
 
 
 if __name__ == "__main__":
-    fire.Fire(main)
+    llama_path = "C:\\Users\\Alex\\.llama\\checkpoints\\Llama-2-7b"
+    tokeniser_path = "C:\\Users\\Alex\\.llama\\checkpoints\\Llama-2-7b\\tokenizer.model"
+    main(llama_path, tokeniser_path)
