@@ -15,7 +15,7 @@ def main(
     top_p: float = 0.9,
     max_seq_len: int = 512,
     max_batch_size: int = 8,
-    max_gen_len: Optional[int] = None,
+    max_gen_len: Optional[int] = 64,
 ):
     """
     Entry point of the program for generating text using a pretrained model.
@@ -92,6 +92,7 @@ If a question does not make any sense, or is not factually coherent, explain why
     )
 
     for dialog, result in zip(dialogs, results):
+        print("New dialog:")
         for msg in dialog:
             print(f"{msg['role'].capitalize()}: {msg['content']}\n")
         print(
